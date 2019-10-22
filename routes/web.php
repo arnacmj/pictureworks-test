@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('index', ['id' => 1]);
+});
+
+Route::group(['prefix' => '/picture-works'], function() {
+    Route::get('/user/{id}', 'MainController@index')->name('index');
 });
